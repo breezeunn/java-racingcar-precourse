@@ -2,6 +2,7 @@ package racingcar.ui;
 
 import camp.nextstep.edu.missionutils.Console;
 import org.junit.platform.commons.util.StringUtils;
+import racingcar.util.CarNameValidatorUtils;
 
 public class GameInput {
 
@@ -28,7 +29,7 @@ public class GameInput {
             validateCarNameInput(input);
             String[] names = input.split(",");
             for (String name : names) {
-                validateCarName(name);
+                CarNameValidatorUtils.validateCarName(name);
             }
         } catch (Exception e) {
             GameOutput.printErrorMessage(e.getMessage());
@@ -45,16 +46,6 @@ public class GameInput {
         String[] names = input.split(",");
         if (names.length == 0) {
             throw new IllegalArgumentException("이름이 입력되지 않았습니다.");
-        }
-    }
-
-    private static void validateCarName(String name) {
-        if (StringUtils.isBlank(name)) {
-            throw new IllegalArgumentException("이름이 입력되지 않았습니다.");
-        }
-
-        if (name.length() > 5) {
-            throw new IllegalArgumentException("이름은 5자 이하여야 합니다.");
         }
     }
 

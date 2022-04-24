@@ -1,30 +1,18 @@
 package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import org.junit.platform.commons.util.StringUtils;
+import racingcar.util.CarNameValidatorUtils;
 
 public class Car {
-
-    private final String errorMessagePrefix = "[ERROR]";
 
     private final String name;
 
     private int position;
 
     public Car(String name) {
-        validateName(name);
+        CarNameValidatorUtils.validateCarName(name);
         this.name = name;
         this.position = 0;
-    }
-
-    private void validateName(String name) {
-        if (StringUtils.isBlank(name)) {
-            throw new IllegalArgumentException(errorMessagePrefix + " " + "이름이 유효하지 않습니다.");
-        }
-
-        if (name.length() > 5) {
-            throw new IllegalArgumentException(errorMessagePrefix + " " + "이름은 최대 5글자까지 입력할 수 있습니다.");
-        }
     }
 
     public void doRound() {
@@ -41,7 +29,7 @@ public class Car {
 
     public void validateRandomNumber(int randomNumber) {
         if (randomNumber < 0 || randomNumber > 9) {
-            throw new IllegalArgumentException(errorMessagePrefix + " " + "랜덤 숫자 범위가 유효하지 않습니다.");
+            throw new IllegalArgumentException("랜덤 숫자 범위가 유효하지 않습니다.");
         }
     }
 

@@ -2,9 +2,9 @@ package racingcar.model;
 
 public class Game {
 
-    public Cars cars;
+    private final Cars cars;
 
-    public int totalRound;
+    private final int totalRound;
 
     public Game(String nameInput, int totalRound) {
         cars = new Cars();
@@ -22,5 +22,9 @@ public class Game {
 
     public String getWinnerName() {
         return this.cars.getWinnersName(cars.getMaxScore());
+    }
+
+    public int getTotalRound() {
+        return this.totalRound;
     }
 }

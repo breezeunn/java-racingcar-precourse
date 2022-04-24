@@ -10,7 +10,7 @@ public class Application {
         System.out.println();
         System.out.println("실행 결과");
         Game game = new Game(nameInput, roundInput);
-        for (int i = 1; i <= roundInput; i++) {
+        for (int i = 1; i <= game.getTotalRound(); i++) {
             game.run();
         }
         System.out.printf("최종 우승자: %s", game.getWinnerName());
