@@ -1,7 +1,7 @@
 package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import racingcar.util.CarNameValidatorUtils;
+import racingcar.util.ValidationUtils;
 
 public class Car {
 
@@ -10,7 +10,7 @@ public class Car {
     private int position;
 
     public Car(String name) {
-        CarNameValidatorUtils.validateCarName(name);
+        ValidationUtils.validateCarName(name);
         this.name = name;
         this.position = 0;
     }

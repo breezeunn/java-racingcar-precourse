@@ -1,5 +1,7 @@
 package racingcar.model;
 
+import racingcar.util.ValidationUtils;
+
 public class Game {
 
     private final Cars cars;
@@ -7,6 +9,10 @@ public class Game {
     private final int totalRound;
 
     public Game(String nameInput, int totalRound) {
+        if (!ValidationUtils.isValidRacingCarNames(nameInput)
+                || !ValidationUtils.isValidRacingCarRound(totalRound)) {
+            throw new IllegalArgumentException("입력값이 바르지 않습니다.");
+        }
         cars = new Cars();
         String[] names = nameInput.split(",");
         for (String name : names) {
