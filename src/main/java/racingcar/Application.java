@@ -1,7 +1,18 @@
 package racingcar;
 
+import racingcar.model.Game;
+import racingcar.ui.GameInput;
+
 public class Application {
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
+        String nameInput = GameInput.getRacingCarNames();
+        int roundInput = GameInput.getRacingCarGameCount();
+        System.out.println();
+        System.out.println("실행 결과");
+        Game game = new Game(nameInput, roundInput);
+        for (int i = 1; i <= roundInput; i++) {
+            game.run();
+        }
+        System.out.printf("최종 우승자: %s", game.getWinnerName());
     }
 }

@@ -27,12 +27,12 @@ public class Car {
         }
     }
 
-    public void doSubGame() {
+    public void doRound() {
         int randomNumber = Randoms.pickNumberInRange(0, 9);
-        doSubGame(randomNumber);
+        doRound(randomNumber);
     }
 
-    public void doSubGame(int randomNumber) {
+    public void doRound(int randomNumber) {
         validateRandomNumber(randomNumber);
         if (randomNumber >= 4) {
             forward();

@@ -27,20 +27,28 @@ public class GameInputTest {
     }
 
     @Test
+    void 자동차이름_콤마없이_하나만_입력할_경우() {
+        String testData = "pobi";
+        assertTrue(GameInput.isValidRacingCarNames(testData));
+    }
+
+    @Test
+    void 자동차이름_콤마포함_하나만_입력할_경우() {
+        String testData = "pobi,";
+        assertTrue(GameInput.isValidRacingCarNames(testData));
+    }
+
+    @Test
     void 자동차이름_콤마만_입력할_경우() {
         String testData = ",,,";
-        assertThrows(IllegalArgumentException.class, () -> {
-            GameInput.isValidRacingCarNames(testData);
-            assertTrue(output().startsWith(errorMessagePrefix));
-        });
+        GameInput.isValidRacingCarNames(testData);
+        assertTrue(output().startsWith(errorMessagePrefix));
     }
 
     @Test
     void 자동차이름_아무것도_입력하지_않은_경우() {
-        assertThrows(IllegalArgumentException.class, () -> {
-            GameInput.isValidRacingCarNames(null);
-            assertTrue(output().startsWith(errorMessagePrefix));
-        });
+        GameInput.isValidRacingCarNames(null);
+        assertTrue(output().startsWith(errorMessagePrefix));
     }
 
     @Test
