@@ -5,8 +5,8 @@ import racingcar.ui.GameInput;
 
 public class Application {
     public static void main(String[] args) {
-        String nameInput = GameInput.getRacingCarNames();
-        int roundInput = GameInput.getRacingCarGameCount();
+        String nameInput = GameInput.getCarNames();
+        int roundInput = GameInput.getTotalRound();
         System.out.println();
         System.out.println("실행 결과");
         Game game = new Game(nameInput, roundInput);

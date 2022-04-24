@@ -39,32 +39,32 @@ class ValidationUtilsTest {
     @Test
     void 자동차이름_콤마없이_하나만_입력할_경우() {
         String testData = "pobi";
-        assertTrue(ValidationUtils.isValidRacingCarNames(testData));
+        assertTrue(ValidationUtils.isValidCarNames(testData));
     }
 
     @Test
     void 자동차이름_콤마포함_하나만_입력할_경우() {
         String testData = "pobi,";
-        assertTrue(ValidationUtils.isValidRacingCarNames(testData));
+        assertTrue(ValidationUtils.isValidCarNames(testData));
     }
 
     @Test
     void 자동차이름_콤마만_입력할_경우() {
         String testData = ",,,";
-        ValidationUtils.isValidRacingCarNames(testData);
+        ValidationUtils.isValidCarNames(testData);
         assertTrue(output().startsWith(ERROR_MESSAGE_PREFIX));
     }
 
     @Test
     void 자동차이름_아무것도_입력하지_않은_경우() {
-        ValidationUtils.isValidRacingCarNames(null);
+        ValidationUtils.isValidCarNames(null);
         assertTrue(output().startsWith(ERROR_MESSAGE_PREFIX));
     }
 
     @Test
     void 시도회수_아무것도_입력하지_않은_경우() {
         assertThrows(IllegalArgumentException.class, () -> {
-            ValidationUtils.isValidRacingCarRound(null);
+            ValidationUtils.isValidTotalRound(null);
             assertTrue(output().startsWith(ERROR_MESSAGE_PREFIX));
         });
     }
@@ -72,7 +72,7 @@ class ValidationUtilsTest {
     @Test
     void 시도회수_숫자가_아닌_경우() {
         assertThrows(IllegalArgumentException.class, () -> {
-            ValidationUtils.isValidRacingCarRound("hello");
+            ValidationUtils.isValidTotalRound("hello");
             assertTrue(output().startsWith(ERROR_MESSAGE_PREFIX));
         });
     }

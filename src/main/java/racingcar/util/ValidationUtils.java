@@ -8,7 +8,7 @@ public class ValidationUtils {
     private ValidationUtils() { }
 
 
-    public static boolean isValidRacingCarNames(String input) {
+    public static boolean isValidCarNames(String input) {
         try {
             validateCarNameInput(input);
             String[] names = input.split(",");
@@ -43,12 +43,12 @@ public class ValidationUtils {
         }
     }
 
-    public static boolean isValidRacingCarRound(String input) {
+    public static boolean isValidTotalRound(String input) {
         int num = getNumber(input);
-        return isValidRacingCarRound(num);
+        return isValidTotalRound(num);
     }
 
-    public static boolean isValidRacingCarRound(int input) {
+    public static boolean isValidTotalRound(int input) {
         if (input < 1 || input > 100) {
             throw new IllegalArgumentException("시도 회수는 1부터 100까지 입력 가능합니다.");
         }
